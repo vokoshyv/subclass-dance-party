@@ -32,8 +32,8 @@ body, a:link, a:visited, a:active{
 }
 .dancefloor span{
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 300px;
+  height: 300px;
 }
 
 
@@ -68,7 +68,7 @@ body, a:link, a:visited, a:active{
  content: url(img/scyther.gif);
 }
 .dancer10{
-  content: url(img/tyhposion.gif);
+  content: url(img/typhosion.gif);
 }
 .dancer11{
   content: url(img/mew.gif);

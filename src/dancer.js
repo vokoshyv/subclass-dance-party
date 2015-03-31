@@ -4,6 +4,8 @@ var Dancer = function(top, left, timeBetweenSteps){
   // use jQuery to create an HTML <span> tag
   var index = Math.floor(Math.random() * 12)
   this.$node = $('<span class="dancer'+index+'"'+'></span>');
+  this.top = top;
+  this.left = left;
 
 
   // now that we have defined the dancer object, we can start setting up important parts of it by calling the methods we wrote
