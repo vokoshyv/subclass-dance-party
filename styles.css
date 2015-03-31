@@ -1,5 +1,10 @@
 body, html{
   height:100%;
+  background: url(img/stage.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 body{
   margin: 0px;
@@ -9,10 +14,11 @@ body{
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
-.title, .addDancerButton{
+.title, .addDancerButton, .lineUp{
   padding:5px 12px;
   float:right;
 }
+
 .topbar{
   height:32px;
   background-color: #555;
@@ -20,8 +26,52 @@ body, a:link, a:visited, a:active{
 .title{
   background-color: #777;
 }
-.dancer{
-  border:10px solid red;
-  border-radius:10px;
-  position:absolute;
+
+.dancefloor{
+
 }
+.dancefloor span{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+}
+
+
+.dancer0{
+  content: url(img/snorlax.gif);
+}
+.dancer1{
+ content: url(img/arcanine.gif);
+}
+.dancer2{
+  content: url(img/bellsprout.gif);
+}
+.dancer3{
+  content: url(img/charizard.gif);
+}
+.dancer4{
+  content: url(img/dragonite.gif);
+}
+.dancer5{
+ content: url(img/eevee.gif);
+}
+.dancer6{
+  content: url(img/gengar.gif);
+}
+.dancer7{
+  content: url(img/koffing.gif);
+}
+.dancer8{
+  content: url(img/poliwrath.gif);
+}
+.dancer9{
+ content: url(img/scyther.gif);
+}
+.dancer10{
+  content: url(img/tyhposion.gif);
+}
+.dancer11{
+  content: url(img/mew.gif);
+}
+
+
