@@ -26,7 +26,7 @@ $(document).ready(function(){
     var dancer = new BlinkyDancer(
       $("body").height() * Math.random(),
       $("body").width() * Math.random(),
-      100
+      10
     );
     $('.dancefloor').append(dancer.$node);
 
@@ -34,16 +34,62 @@ $(document).ready(function(){
   });
 
 $(".lineUp").on("click", function(event){
-  var x = 100
+  var xStart = 280;
+  var xEnd = 1000;
+  var increment = 700/(window.dancers.length);
+
   $(".dancefloor").text("");
 
   for(var i = 0; i < window.dancers.length; i++){
-    window.dancers[i].setPosition(x, 100)
-    x+=10;
+    window.dancers[i].jiggle = 0;
+    window.dancers[i].top = 420
+    window.dancers[i].left = xStart
+
+    window.dancers[i].setPosition(this.top, this.left)
+    xStart+=increment;
     $('.dancefloor').append(window.dancers[i].$node);
   }
-
-
 })
+
+$(".battle").on("click", function(event){
+
+  $(".lineUp").click();
+  var poke1Index = Math.floor(Math.random() * window.dancers.length);
+  var possibleIndex = Math.floor(Math.random() * window.dancers.length);
+  while (possibleIndex === poke1Index){
+    possibleIndex = Math.floor(Math.random() * window.dancers.length);
+  }
+  var poke2Index = possibleIndex;
+
+    window.dancers[poke1Index].top = 259
+    window.dancers[poke1Index].left = 398
+    window.dancers[poke1Index].setPosition(this.top, this.left)
+
+
+    window.dancers[poke2Index].top = 259
+    window.dancers[poke2Index].left = 840
+    window.dancers[poke2Index].setPosition(this.top, this.left)
+
+    window.poke1Index = poke1Index;
+    window.poke2Index = poke2Index;
+})
+
+window.onkeypress = function(event){
+  if (event.keyCode == 119) {
+      window.dancers[poke1Index].moveUp();
+  }
+  if (event.keyCode == 115) {
+      window.dancers[poke1Index].moveDown();
+  }
+  if (event.keyCode == 97) {
+      window.dancers[poke1Index].moveLeft();
+  }
+  if (event.keyCode == 100) {
+      window.dancers[poke1Index].moveRight();
+  }
+}
+
+
+
 });
 

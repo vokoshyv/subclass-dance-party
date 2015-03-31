@@ -23,9 +23,13 @@ BlinkyDancer.prototype.step = function(){
     // other effects you can use on a jQuery-wrapped html tag.
   // this.$node.toggle();
 
-    this.top += (Math.random()-0.5)*30;
-    this.left += (Math.random()-0.5)*10;
-    this.setPosition(this.left, this.top);
+    this.top += (Math.random()-0.5)*this.jiggle;
+    this.left += (Math.random()-0.5)*this.jiggle;
+
+    this.top += this.yAccel;
+    this.left += this.xAccel;
+
+    this.setPosition(this.top, this.left);
 
 
 };

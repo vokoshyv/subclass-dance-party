@@ -1,10 +1,7 @@
 body, html{
   height:100%;
-  background: url(img/stage.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  background: url(img/pokemonStadium.jpg) top left no-repeat; background-attachment:fixed;
+  background-size: 1280px, 720px;
 }
 body{
   margin: 0px;
@@ -14,7 +11,7 @@ body{
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
-.title, .addDancerButton, .lineUp{
+.title, .addDancerButton, .lineUp, .battle{
   padding:5px 12px;
   float:right;
 }
@@ -32,8 +29,8 @@ body, a:link, a:visited, a:active{
 }
 .dancefloor span{
   position: absolute;
-  width: 300px;
-  height: 300px;
+  width: 50px;
+  height: 50px;
 }
 
 

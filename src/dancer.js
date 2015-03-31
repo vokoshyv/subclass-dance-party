@@ -6,6 +6,9 @@ var Dancer = function(top, left, timeBetweenSteps){
   this.$node = $('<span class="dancer'+index+'"'+'></span>');
   this.top = top;
   this.left = left;
+  this.xAccel = 0;
+  this.yAccel = 0;
+  this.jiggle = 1;
 
 
   // now that we have defined the dancer object, we can start setting up important parts of it by calling the methods we wrote
@@ -16,9 +19,36 @@ var Dancer = function(top, left, timeBetweenSteps){
 
 };
 
+Dancer.prototype.moveRight = function(){
+  this.xAccel = 10;
+  // this.left+=10;
+};
+
+Dancer.prototype.moveLeft = function(){
+  this.xAccel = -10;
+  // this.left-=10;
+};
+
+Dancer.prototype.moveUp = function(){
+  this.yAccel = -10;
+  // this.top-=10;
+};
+
+Dancer.prototype.moveDown = function(){
+  this.yAccel = 10;
+  // this.top+=10;
+};
+
+Dancer.prototype.stopMotion = function(){
+  this.xAccel = 0;
+  this.yAccel = 0;
+};
+
 Dancer.prototype.step = function(){
   // the basic dancer doesn't do anything interesting at all on each step,
   // it just schedules the next step
+  this.top += this.yAccel;
+  this.left += this.xAccel;
   setTimeout(this.step.bind(this), this.timeBetweenSteps);
 };
 
