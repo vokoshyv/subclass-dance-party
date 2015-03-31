@@ -48,10 +48,12 @@ $(".lineUp").on("click", function(event){
     window.dancers[i].setPosition(this.top, this.left)
     xStart+=increment;
     $('.dancefloor').append(window.dancers[i].$node);
+    // $('.dancefloor').addClass('animated shake');
   }
 })
 
 $(".battle").on("click", function(event){
+
 
   $(".lineUp").click();
   var poke1Index = Math.floor(Math.random() * window.dancers.length);
@@ -72,22 +74,36 @@ $(".battle").on("click", function(event){
 
     window.poke1Index = poke1Index;
     window.poke2Index = poke2Index;
+
 })
 
 window.onkeypress = function(event){
   if (event.keyCode == 119) {
       window.dancers[poke1Index].moveUp();
   }
-  if (event.keyCode == 115) {
+  else if (event.keyCode == 115) {
       window.dancers[poke1Index].moveDown();
   }
-  if (event.keyCode == 97) {
+  else if (event.keyCode == 97) {
       window.dancers[poke1Index].moveLeft();
   }
-  if (event.keyCode == 100) {
+  else if (event.keyCode == 100) {
       window.dancers[poke1Index].moveRight();
   }
+  else if (event.keyCode == 105) {
+      window.dancers[poke2Index].moveUp();
+  }
+  else if (event.keyCode == 107) {
+      window.dancers[poke2Index].moveDown();
+  }
+  else if (event.keyCode == 106) {
+      window.dancers[poke2Index].moveLeft();
+  }
+  else if (event.keyCode == 108) {
+      window.dancers[poke2Index].moveRight();
+  }
 }
+
 
 
 

@@ -20,23 +20,23 @@ var Dancer = function(top, left, timeBetweenSteps){
 };
 
 Dancer.prototype.moveRight = function(){
-  this.xAccel = 10;
-  // this.left+=10;
+  // this.xAccel = 10;
+  this.left+=10;
 };
 
 Dancer.prototype.moveLeft = function(){
-  this.xAccel = -10;
-  // this.left-=10;
+  // this.xAccel = -10;
+  this.left-=10;
 };
 
 Dancer.prototype.moveUp = function(){
-  this.yAccel = -10;
-  // this.top-=10;
+  // this.yAccel = -10;
+  this.top-=10;
 };
 
 Dancer.prototype.moveDown = function(){
-  this.yAccel = 10;
-  // this.top+=10;
+  // this.yAccel = 10;
+  this.top+=10;
 };
 
 Dancer.prototype.stopMotion = function(){
