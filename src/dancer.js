@@ -3,12 +3,13 @@ var Dancer = function(top, left, timeBetweenSteps){
 
   // use jQuery to create an HTML <span> tag
   var index = Math.floor(Math.random() * 12)
-  this.$node = $('<span class="dancer'+index+'"'+'></span>');
+  this.$node = $('<span class="dancer'+index+'"'+' id='+window.dancers.length+'></span>');
   this.top = top;
   this.left = left;
   this.xAccel = 0;
   this.yAccel = 0;
   this.jiggle = 1;
+
 
 
   // now that we have defined the dancer object, we can start setting up important parts of it by calling the methods we wrote
@@ -17,11 +18,33 @@ var Dancer = function(top, left, timeBetweenSteps){
   this.setPosition(top, left);
   this.timeBetweenSteps = timeBetweenSteps;
 
+
+
 };
 
 Dancer.prototype.moveRight = function(){
   // this.xAccel = 10;
   this.left+=10;
+
+
+  var poke1x = window.dancers[poke1Index].left+25;
+  var poke1y = window.dancers[poke1Index].top+25;
+  var poke2x = window.dancers[poke2Index].left+25;
+  var poke2y = window.dancers[poke2Index].top+25;
+  var dx = (poke1x + 25) - (poke2x + 25);
+  var dy = (poke1y + 25) - (poke2y + 25);
+  var distance = Math.sqrt(dx * dx + dy * dy);
+  console.log(distance);
+  if (distance < 50){
+    $("#"+poke1Index).attr('id', 'fighting');
+    $("#"+poke2Index).attr('id', 'fighting');
+  }
+  else{
+    $("#"+poke1Index).attr('id', poke1Index);
+    $("#"+poke2Index).attr('id', poke2Index);
+    console.log(window.dancers[poke1Index]);
+  }
+
 };
 
 Dancer.prototype.moveLeft = function(){

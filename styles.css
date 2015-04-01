@@ -71,4 +71,9 @@ body, a:link, a:visited, a:active{
   content: url(img/mew.gif);
 }
 
-
+#fighting{
+  /*border: 10px solid red;
+  border-radius:10px;
+  position:absolute;*/
+  content: url(img/scyther.gif);
+}

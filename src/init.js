@@ -42,13 +42,13 @@ $(".lineUp").on("click", function(event){
 
   for(var i = 0; i < window.dancers.length; i++){
     window.dancers[i].jiggle = 0;
-    window.dancers[i].top = 420
+    window.dancers[i].top = 390
     window.dancers[i].left = xStart
 
     window.dancers[i].setPosition(this.top, this.left)
     xStart+=increment;
     $('.dancefloor').append(window.dancers[i].$node);
-    // $('.dancefloor').addClass('animated shake');
+    $('.dancefloor').addClass('animated wobble');
   }
 })
 
@@ -56,6 +56,10 @@ $(".battle").on("click", function(event){
 
 
   $(".lineUp").click();
+
+  // $("#"+poke1Index).removeClass('animated zoomInDown');
+  // $("#"+poke2Index).removeClass('animated zoomInDown');
+
   var poke1Index = Math.floor(Math.random() * window.dancers.length);
   var possibleIndex = Math.floor(Math.random() * window.dancers.length);
   while (possibleIndex === poke1Index){
@@ -63,17 +67,20 @@ $(".battle").on("click", function(event){
   }
   var poke2Index = possibleIndex;
 
-    window.dancers[poke1Index].top = 259
+    window.dancers[poke1Index].top = 229
     window.dancers[poke1Index].left = 398
     window.dancers[poke1Index].setPosition(this.top, this.left)
 
 
-    window.dancers[poke2Index].top = 259
+    window.dancers[poke2Index].top = 229
     window.dancers[poke2Index].left = 840
     window.dancers[poke2Index].setPosition(this.top, this.left)
 
     window.poke1Index = poke1Index;
     window.poke2Index = poke2Index;
+  // $("#"+poke1Index).addClass('animated zoomInDown');
+  // $("#"+poke2Index).addClass('animated zoomInDown');
+
 
 })
 
