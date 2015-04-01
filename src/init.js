@@ -1,6 +1,12 @@
 $(document).ready(function(){
   window.dancers = [];
 
+  var audio = {};
+
+  audio['theme'] = new Audio();
+  audio['theme'].src = 'music/theme.mp3';
+  audio['theme'].autoplay = true;
+
   $(".addDancerButton").on("click", function(event){
     /* This function sets up the click handlers for the create-dancer
      * buttons on index.html. You should only need to make one small change to it.
@@ -54,6 +60,12 @@ $(".lineUp").on("click", function(event){
 
 $(".battle").on("click", function(event){
 
+    audio['theme'].pause();
+    if(!audio['battle']){
+      audio['battle'] = new Audio();
+      audio['battle'].src = 'music/battle.mp3';
+      audio["battle"].play();
+    }
 
   $(".lineUp").click();
 
@@ -86,28 +98,36 @@ $(".battle").on("click", function(event){
 
 window.onkeypress = function(event){
   if (event.keyCode == 119) {
-      window.dancers[poke1Index].moveUp();
+    this.bool = false;
+    window.dancers[poke1Index].moveUp();
   }
   else if (event.keyCode == 115) {
-      window.dancers[poke1Index].moveDown();
+    this.bool = false;
+    window.dancers[poke1Index].moveDown();
   }
   else if (event.keyCode == 97) {
-      window.dancers[poke1Index].moveLeft();
+    this.bool = false;
+    window.dancers[poke1Index].moveLeft();
   }
   else if (event.keyCode == 100) {
-      window.dancers[poke1Index].moveRight();
+    this.bool = false;
+    window.dancers[poke1Index].moveRight();
   }
   else if (event.keyCode == 105) {
-      window.dancers[poke2Index].moveUp();
+    this.bool = false;
+    window.dancers[poke2Index].moveUp();
   }
   else if (event.keyCode == 107) {
-      window.dancers[poke2Index].moveDown();
+    this.bool = false;
+    window.dancers[poke2Index].moveDown();
   }
   else if (event.keyCode == 106) {
-      window.dancers[poke2Index].moveLeft();
+    this.bool = false;
+    window.dancers[poke2Index].moveLeft();
   }
   else if (event.keyCode == 108) {
-      window.dancers[poke2Index].moveRight();
+    this.bool = false;
+    window.dancers[poke2Index].moveRight();
   }
 }
 

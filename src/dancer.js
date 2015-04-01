@@ -19,14 +19,11 @@ var Dancer = function(top, left, timeBetweenSteps){
   this.timeBetweenSteps = timeBetweenSteps;
 
 
+  this.bool = false;
 
 };
 
-Dancer.prototype.moveRight = function(){
-  // this.xAccel = 10;
-  this.left+=10;
-
-
+Dancer.prototype.fightingTime = function(){
   var poke1x = window.dancers[poke1Index].left+25;
   var poke1y = window.dancers[poke1Index].top+25;
   var poke2x = window.dancers[poke2Index].left+25;
@@ -34,32 +31,46 @@ Dancer.prototype.moveRight = function(){
   var dx = (poke1x + 25) - (poke2x + 25);
   var dy = (poke1y + 25) - (poke2y + 25);
   var distance = Math.sqrt(dx * dx + dy * dy);
-  console.log(distance);
-  if (distance < 50){
-    $("#"+poke1Index).attr('id', 'fighting');
-    $("#"+poke2Index).attr('id', 'fighting');
-  }
-  else{
-    $("#"+poke1Index).attr('id', poke1Index);
-    $("#"+poke2Index).attr('id', poke2Index);
-    console.log(window.dancers[poke1Index]);
+
+  if(this.bool === false){
+    window.prevPoke1Class = window.dancers[poke1Index].$node[0].className;
+    window.prevPoke2Class = window.dancers[poke2Index].$node[0].className;
   }
 
+  if (distance < 50){
+    $("#"+poke1Index).attr('class', 'fighting');
+    $("#"+poke2Index).attr('class', 'fighting');
+    this.bool = true;
+  }
+  else{
+    $("#"+poke1Index).attr('class', prevPoke1Class);
+    $("#"+poke2Index).attr('class', prevPoke2Class);
+    this.bool = false;
+  }
+}
+
+Dancer.prototype.moveRight = function(){
+  // this.xAccel = 10;
+  this.left+=10;
+  this.fightingTime();
 };
 
 Dancer.prototype.moveLeft = function(){
   // this.xAccel = -10;
   this.left-=10;
+  this.fightingTime();
 };
 
 Dancer.prototype.moveUp = function(){
   // this.yAccel = -10;
   this.top-=10;
+  this.fightingTime();
 };
 
 Dancer.prototype.moveDown = function(){
   // this.yAccel = 10;
   this.top+=10;
+  this.fightingTime();
 };
 
 Dancer.prototype.stopMotion = function(){
